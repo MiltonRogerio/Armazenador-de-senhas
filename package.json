@@ -1,0 +1,53 @@
+{
+  "name": "meu-cofre-portatil",
+  "version": "1.0.0",
+  "description": "Cofre de senhas portátil",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win portable nsis"
+  },
+  "build": {
+    "appId": "com.cofre.portatil",
+    "productName": "Security Keys",
+    "asar": true,
+    "asarUnpack": [
+      "**/*.node",
+      "**/*.dll"
+    ],
+    "files": [
+      "src/**/*",
+      "package.json",
+      "icon.ico",
+      "node_modules/**/*",
+      "!dist",
+      "!node_modules/.cache"
+    ],
+    "win": {
+      "icon": "icon.ico",
+      "target": [
+        "portable",
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "artifactName": "Security Keys Setup ${version}.${ext}"
+    },
+    "portable": {
+      "artifactName": "Security Keys (Portable) ${version}.${ext}"
+    },
+    "directories": {
+      "output": "dist"
+    }
+  },
+  "devDependencies": {
+    "@electron/packager": "^20.3.0",
+    "electron": "^28.0.0",
+    "electron-builder": "^22.14.13",
+    "png-to-ico": "^3.0.2",
+    "sharp": "^0.35.4"
+  },
+  "dependencies": {
+    "electron-store": "^8.1.0"
+  }
+}

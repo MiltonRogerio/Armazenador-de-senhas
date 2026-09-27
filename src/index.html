@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="tela-login" class="container" style="text-align:center;">
+    <h1>🔒 Meu Cofre</h1>
+    <input type="password" id="senha-mestra" placeholder="Sua chave mestra">
+    <button id="btn-acao">Desbloquear Cofre</button>
+    <p id="msg-erro" style="color:#ff4444; font-size:13px;"></p>
+  </div>
+
+  <div id="tela-cofre" class="container" style="display:none">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+      <h2 style="margin:0;">Senhas</h2>
+      <button id="btn-trancar" style="background:#3a3a3a; width:auto; padding:8px 16px; font-size:13px; margin:0; border-radius:20px;">Trancar</button>
+    </div>
+    <form id="form-add">
+      <input id="site" placeholder="Site ex: Youtube" required>
+      <input id="usuario" placeholder="Usuário / Email" required>
+      <input id="senha" placeholder="Senha" required>
+      <button type="submit">Salvar</button>
+    </form>
+    <div id="lista-senhas"></div>
+  </div>
+  <script src="renderer.js"></script>
+</body>
+</html>
