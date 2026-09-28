@@ -1,5 +1,7 @@
 node_modules
 dist
+data/
+vaults.json
 *.log
 .env
 .DS_Store

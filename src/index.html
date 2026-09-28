@@ -5,26 +5,83 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="tela-login" class="container" style="text-align:center;">
-    <h1>🔒 Meu Cofre</h1>
-    <input type="password" id="senha-mestra" placeholder="Sua chave mestra">
-    <button id="btn-acao">Desbloquear Cofre</button>
-    <p id="msg-erro" style="color:#ff4444; font-size:13px;"></p>
+<div id="titlebar">
+  <span>🔒 Security Keys</span>
+  <div class="win-btns">
+    <button id="btn-min">—</button>
+    <button id="btn-close">✕</button>
   </div>
-
-  <div id="tela-cofre" class="container" style="display:none">
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-      <h2 style="margin:0;">Senhas</h2>
-      <button id="btn-trancar" style="background:#3a3a3a; width:auto; padding:8px 16px; font-size:13px; margin:0; border-radius:20px;">Trancar</button>
-    </div>
-    <form id="form-add">
-      <input id="site" placeholder="Site ex: Youtube" required>
-      <input id="usuario" placeholder="Usuário / Email" required>
-      <input id="senha" placeholder="Senha" required>
-      <button type="submit">Salvar</button>
+</div>
+<div class="container">
+  <div id="tela-selecionar">
+    <h2>Meus Cofres</h2>
+    <p>Selecione um cofre</p>
+    <div id="lista-cofres"></div>
+    <button onclick="irParaRegistro()" style="width:100%!important;">+ Criar novo cofre</button>
+  </div>
+  <div id="tela-login" style="display:none;">
+    <h2 id="cofre-selecionado-nome"></h2>
+    <p>Digite a keymaster</p>
+    <form id="form-login">
+      <input type="password" id="login-senha" placeholder="Senha do cofre" required>
+      <button type="submit">Desbloquear</button>
+      <div id="msg-erro-login"></div>
     </form>
-    <div id="lista-senhas"></div>
+    <button class="btn-sec" onclick="voltarParaSelecao()" style="width:100%!important; margin-top:10px;">Voltar</button>
   </div>
-  <script src="renderer.js"></script>
+  <div id="tela-registro" style="display:none;">
+    <h2>Novo Cofre</h2>
+    <p>Crie sua keymaster</p>
+    <form id="form-registro">
+      <input type="text" id="reg-usuario" placeholder="Nome do cofre" required>
+      <input type="password" id="reg-senha" placeholder="Senha" required>
+      <input type="password" id="reg-confirmar" placeholder="Confirmar senha" required>
+      <button type="submit">Criar cofre</button>
+      <div id="msg-erro"></div>
+    </form>
+    <button class="btn-sec" onclick="voltarParaSelecao()" style="width:100%!important; margin-top:10px;">Voltar</button>
+  </div>
+  <div id="tela-app" style="display:none;">
+    <div class="top-bar">
+      <h2>Cofre</h2>
+      <button id="btn-logout" class="btn-sec">Sair</button>
+    </div>
+    <div class="tabs">
+      <button id="tab-lista" class="tab active" onclick="mostrarAba('lista')">Senhas</button>
+      <button id="tab-add" class="tab" onclick="mostrarAba('add')">Adicionar</button>
+    </div>
+    <div id="aba-lista">
+      <div id="lista-senhas"></div>
+    </div>
+    <div id="aba-add" style="display:none;">
+      <form id="form-add">
+        <input type="text" id="input-site" placeholder="Site / App" required>
+        <input type="text" id="input-login" placeholder="Usuário / Email">
+        <div class="input-group">
+          <input type="text" id="input-senha" placeholder="Senha" required>
+          <div class="dropdown-gen">
+            <button type="button" id="btn-gerar">Gerar</button>
+            <div id="dropdown-gerar" class="dropdown-content">
+              <button type="button" onclick="gerarFraca()">Fraca (8)</button>
+              <button type="button" onclick="gerarMedia()">Média (12)</button>
+              <button type="button" onclick="gerarForte()">Forte (16)</button>
+            </div>
+          </div>
+        </div>
+        <button type="submit">Salvar</button>
+      </form>
+    </div>
+  </div>
+</div>
+<div id="modal-confirm" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:99999; justify-content:center; align-items:center;">
+  <div style="background:#1a1a1a; border:1px solid rgba(255,255,255,0.1); padding:20px; border-radius:12px; width:300px; text-align:center;">
+    <p id="modal-text" style="margin-bottom:16px; text-align:center;"></p>
+    <div style="display:flex; gap:8px;">
+      <button id="modal-cancel" class="btn-sec" style="flex:1;">Cancelar</button>
+      <button id="modal-ok" style="flex:1; background:#ff4444; color:white;">Apagar</button>
+    </div>
+  </div>
+</div>
+<script src="renderer.js"></script>
 </body>
 </html>
