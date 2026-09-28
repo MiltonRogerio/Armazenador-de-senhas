@@ -16,6 +16,12 @@ Armazenador de senhas portátil, seguro e offline. Não precisa instalar, não u
 ### 🚀 Como gerar o executável (desenvolvedor)
 Se você baixou o código-fonte:
 
+### 📢 Atualização do executável (V1.1.0)
+- Manuseamento de cofres
+- Sistema de criação de senhas
+- Mudança no menu e na interface
+- Sistema contra força bruta
+
 ### 📋 Pré-requisitos
 - Ter o Node.js instalado: https://nodejs.org/
 
