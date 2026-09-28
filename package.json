@@ -1,6 +1,6 @@
 {
   "name": "meu-cofre-portatil",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Cofre de senhas portátil",
   "main": "src/main.js",
   "scripts": {
