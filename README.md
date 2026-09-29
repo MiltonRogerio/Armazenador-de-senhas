@@ -8,6 +8,12 @@ Armazenador de senhas portátil, seguro e offline. Não precisa instalar, não u
 - Acesso com Master Key
 - 100% offline e portátil
 
+### 📢 Atualização (V1.1.0)
+- Redesign da interface
+- Criação de senhas
+- Seleção de cofres
+- Proteção contra ataques de força bruta
+
 ### 📥 Como usar (usuário final)
 1. Vá em `Releases` aqui do GitHub
 2. Baixe o arquivo `.exe` mais recente
